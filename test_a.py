@@ -11,7 +11,7 @@ os.chdir('/github/workspace')
 print('WORKSPACE')
 for l in os.listdir('./'):
     print(l)
-for l in os.listdir('/src'):
+for l in os.listdir('./src'):
     print(l)
 
 
@@ -24,7 +24,7 @@ try:
 except:
     print('ex2')
 tst = importlib.import_module('tests')
-
+import demo
 ass = src.Assignment()
 test_functions = dir(tst)
 
