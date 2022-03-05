@@ -14,7 +14,7 @@ try:
 except:
     print('ex1')
 try:
-    src = importlib.import_module('src.a')
+    src = importlib.import_module('workspace.src.a')
 except:
     print('ex2')
 tst = importlib.import_module('tests')
