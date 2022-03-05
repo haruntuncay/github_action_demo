@@ -5,9 +5,9 @@ import os
 
 # Load the module
 
-print(os.getcwd())
+print('CWD',os.getcwd())
 for l in os.listdir('./'):
-    print(l)
+    print('LISTING', l)
 
 try:
     src = importlib.import_module('workspace.demo')
@@ -18,7 +18,7 @@ try:
 except:
     print('ex2')
 tst = importlib.import_module('tests')
-import workspace.demo as src
+
 ass = src.Assignment()
 test_functions = dir(tst)
 
