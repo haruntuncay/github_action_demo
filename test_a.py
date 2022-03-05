@@ -5,9 +5,11 @@ import os
 
 # Load the module
 
-for l in os.listdir('/'):
-    print(l)
+print('GITHUB')
 for l in os.listdir('/github'):
+    print(l)
+print('WORKSPACE')
+for l in os.listdir('/github/workspace'):
     print(l)
     
 src = importlib.import_module('demo', package='/github/workspace')
