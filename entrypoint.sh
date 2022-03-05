@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo ls /
 echo /github
 echo /github/workspace
