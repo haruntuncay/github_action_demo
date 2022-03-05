@@ -5,7 +5,8 @@ import os
 
 # Load the module
 
-for l in os.listdir('./workspace'):
+print(os.getcwd())
+for l in os.listdir('./'):
     print(l)
 
 try:
