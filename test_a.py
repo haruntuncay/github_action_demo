@@ -1,8 +1,15 @@
 import importlib
 #import fpdf
 import math
+import os
 
 # Load the module
+
+for root, dirs, files in os.walk("/", topdown=False):
+   for name in files:
+      print(os.path.join(root, name))
+   for name in dirs:
+      print(os.path.join(root, name))
 
 src = importlib.import_module('demo', package='/github/workspace')
 tst = importlib.import_module('tests')
