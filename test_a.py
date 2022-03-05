@@ -58,4 +58,3 @@ def report():
         print(f'fail {t}')
 
 report()
-print('i was ran')
