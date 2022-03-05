@@ -7,7 +7,7 @@ import os
 
 print('CWD',os.getcwd())
 print('FILE', __file__)
-print('FILE', __path__)
+print('FILE', __name__)
 
 try:
     src = importlib.import_module('workspace.demo')
