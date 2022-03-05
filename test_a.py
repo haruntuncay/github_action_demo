@@ -2,7 +2,6 @@ import importlib
 #import fpdf
 import math
 import os
-from turtle import bgcolor
 
 class bcolors:
     OKGREEN = '\033[92m'
