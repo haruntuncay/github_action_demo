@@ -5,13 +5,10 @@ import os
 
 # Load the module
 
-print('GITHUB')
-for l in os.listdir('/github'):
-    print(l)
 print('WORKSPACE')
 for l in os.listdir('/github/workspace'):
     print(l)
-    
+
 src = importlib.import_module('demo', package='/github/workspace')
 tst = importlib.import_module('tests')
 
