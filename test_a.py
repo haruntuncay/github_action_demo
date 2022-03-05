@@ -2,21 +2,16 @@ import importlib
 #import fpdf
 import math
 import os
+from turtle import bgcolor
 
-# Load the module
+class bcolors:
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
 
-print('CWD',os.getcwd())
-print('FILE', __file__)
-print('FILE', __name__)
 
-try:
-    src = importlib.import_module('workspace.demo')
-except:
-    print('ex1')
-try:
-    src = importlib.import_module('workspace.src.a')
-except:
-    print('ex2')
+src = importlib.import_module('workspace.demo')
 tst = importlib.import_module('tests')
 
 ass = src.Assignment()
@@ -62,11 +57,8 @@ def report():
     
     pdf.output("a.pdf")
     '''
-
-    for t in tests_found:
-        print(f'found {t}')
     for t in successful_tests:
-        print(f'succ {t}')
+        print(f'{bcolors.OKGREEN}Test {t} was succesful{bcolors.ENDC}')
     for t in failed_tests:
         print(f'fail {t}')
 
