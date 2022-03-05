@@ -7,8 +7,6 @@ import os
 
 os.chdir('/github/workspace')
 
-
-print('WORKSPACE')
 for l in os.listdir('./'):
     print(l)
 for l in os.listdir('./src'):
