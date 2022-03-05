@@ -4,7 +4,7 @@ import math
 
 # Load the module
 
-src = importlib.import_module('/github/workspace/demo')
+src = importlib.import_module('./demo')
 tst = importlib.import_module('tests')
 
 ass = src.Assignment()
