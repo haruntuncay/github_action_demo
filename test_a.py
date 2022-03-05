@@ -1,5 +1,5 @@
 import importlib
-import fpdf
+#import fpdf
 import math
 
 # Load the module
@@ -25,6 +25,7 @@ for tf in test_functions:
                 failed_tests.append(tf)
 
 def report():
+    '''
     pdf = fpdf.FPDF()
     pdf.add_page()
     pdf.set_font('Arial', '', 11)  
@@ -45,8 +46,16 @@ def report():
     ratio = len(successful_tests)/len(failed_tests)
     txt = f'Your score is {math.ceil(ratio*100)}'
     pdf.cell(200, 10, txt = txt, ln = 1)
-
+    
     pdf.output("a.pdf")
+    '''
+
+    for t in tests_found:
+        print(f'found {t}')
+    for t in successful_tests:
+        print(f'succ {t}')
+    for t in failed_tests:
+        print(f'fail {t}')
 
 report()
 print('i was ran')
