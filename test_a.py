@@ -6,15 +6,15 @@ import os
 # Load the module
 
 print('CWD',os.getcwd())
-for l in os.listdir('./'):
-    print('LISTING', l)
+print('FILE', __file__)
+print('FILE', __path__)
 
 try:
     src = importlib.import_module('workspace.demo')
 except:
     print('ex1')
 try:
-    src = importlib.import_module('src.a',package='./workspace')
+    src = importlib.import_module('src.a')
 except:
     print('ex2')
 tst = importlib.import_module('tests')
@@ -37,6 +37,7 @@ for tf in test_functions:
                 failed_tests.append(tf)
 
 def report():
+    print('REPORTING')
     '''
     pdf = fpdf.FPDF()
     pdf.add_page()
