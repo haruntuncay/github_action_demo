@@ -1,15 +1,9 @@
 # action.yml
 name: 'Autograde Container'
 description: 'Autograde'
-inputs:
-  repo-path:  # id of input
-    description: 'Repo path'
-    required: true
 outputs:
   pdf-path: # id of output
     description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.repo-path }}

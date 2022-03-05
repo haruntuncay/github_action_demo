@@ -1,4 +1,3 @@
-echo "input was $1"
 echo ls /
 echo /github
 echo /github/workspace
