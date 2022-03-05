@@ -5,16 +5,22 @@ import os
 
 # Load the module
 
+os.chdir('/github/workspace')
+
+
 print('WORKSPACE')
-for l in os.listdir('/github/workspace'):
+for l in os.listdir('./'):
+    print(l)
+for l in os.listdir('/src'):
     print(l)
 
+
 try:
-    src = importlib.import_module('a', package='/github/workspace/src')
+    src = importlib.import_module('demo')
 except:
     print('ex1')
 try:
-    src = importlib.import_module('src.a', package='/github/workspace')
+    src = importlib.import_module('src.a')
 except:
     print('ex2')
 tst = importlib.import_module('tests')
