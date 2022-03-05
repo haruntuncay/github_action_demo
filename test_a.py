@@ -9,7 +9,14 @@ print('WORKSPACE')
 for l in os.listdir('/github/workspace'):
     print(l)
 
-src = importlib.import_module('demo', package='/github/workspace')
+try:
+    src = importlib.import_module('a', package='/github/workspace/src')
+except:
+    print('ex1')
+try:
+    src = importlib.import_module('src.a', package='/github/workspace')
+except:
+    print('ex2')
 tst = importlib.import_module('tests')
 
 ass = src.Assignment()
