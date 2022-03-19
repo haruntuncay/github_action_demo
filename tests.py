@@ -4,8 +4,8 @@ def test_incr(asmt):
 def test_square(asmt):
     assert asmt.square(3) == 9
 
-def test_incorrect_code(asmt):
-    assert asmt.incorrect_code() == True
+#def test_incorrect_code(asmt):
+#    assert asmt.incorrect_code() == True
 
 def test_non_existant_func(asmt):
     assert asmt.some_func() == True
