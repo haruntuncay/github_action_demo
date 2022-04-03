@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pip3 install pyflakes, pyyaml
+pip3 install pyflakes pyyaml
 
 cp /github/workspace/assignment.py /src/assignment.py
 
