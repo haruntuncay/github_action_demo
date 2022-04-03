@@ -1,0 +1,41 @@
+functions:
+
+  increment:
+    cases: 3
+    parameters:
+      - name: n
+        value: range(-5, 100)
+
+  multiply:
+    cases: 4
+    parameters:
+      - name: n
+        value: in(-5, 100)
+      - name: m
+        value: in(0,1,2,3,4,5)
+
+  mysum:
+    cases: 5
+    parameters:
+      - name: arr
+        value: list(5;20;range(-100, 100))
+
+  object_test:
+    cases: 1
+    parameters:
+      - name: obj1
+        value: object('obj.MyClass', (range(1,10), range(20,30))) 
+      - name: obj2
+        value: object('obj.MyClass', (range(1,10), range(20,30))) 
+
+  x:
+  cases: 1
+  parameters:
+    - name: n
+      value: in(in('x', 'y', 'z'), range(1000, 2000), list(0;10;in(1,2,3,4,5)))
+    - name: obj
+      value: object('obj.MyClass', (-1, object('obj.MyClass', (3, 4))))
+    - name: d
+      value: vararg(3;5;in(1,2,3,4,5))
+    - name: k
+      value: dict(l=1, c=range(100,200))

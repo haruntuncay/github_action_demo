@@ -1,6 +1,7 @@
 #!/bin/sh
 
-cp /src/runner.py /github/runner.py
-cp /src/tests.py /github/tests.py
+pip3 install pyflakes, pyyaml
 
-python3 /github/runner.py
+cp /github/workspace/assignment.py /src/assignmen.py
+
+python3 /src/run.py
