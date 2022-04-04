@@ -33,17 +33,26 @@ def get_error_type(msg):
     return Error.INVALID_SYNTAX
 
 def def_statement(lines, lineno, index):
-    return (index < 0 or index == len(lines)) or lines[index].strip().startswith('def')
+    if index < 0 or index == len(lines):
+        return True
+
+    first_word = lines[index].split(' ')[0]
+
+    if index - 1 >= 0 and lines[index-1].split(' ')[0] in ['from', 'import']:
+        return True
+    
+    return first_word == 'def'
 
 def delete_above(lines, lineno, stop_condition=def_statement):
-    end = lineno-1
-    start = end
-    while not stop_condition(lines, lineno, start):
-        start -= 1
+    start = lineno - 1
+    end = start
 
-    while end >= start:
-        lines.pop(start)
+    while not stop_condition(lines, lineno, end):
         end -= 1
+
+    while start >= 0 and end <= start:
+        lines.pop(start)
+        start -= 1
 
 def delete_below(lines, lineno, stop_condition=def_statement):
     start = lineno
@@ -82,13 +91,16 @@ def get_source(input):
             lineno = int(parts[1])
             msg = parts[-1]
 
+            print(lineno, msg)
+
+
             if DEBUG:
                 print('error in line ', lineno)
 
             if get_error_type(msg) == Error.INDENT_EXPECTED:
                 # above function has empty body
                 if lines[lineno-1].startswith('def'):
-                    delete_above(lines, lineno)
+                    delete_above(lines, lineno-1)
                 else:
                     delete_below(lines, lineno)
                     delete_above(lines, lineno)
@@ -101,6 +113,3 @@ def get_source(input):
                 file.writelines(lines)
             
             input = modified_input
-
-
-
