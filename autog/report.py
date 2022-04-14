@@ -37,17 +37,17 @@ class Report():
 
     def report(self):
         funcname = self.name.upper()
-
+        r = '-' * 40
+        
         if self.failed:
-            r =  f'{funcname} has failed'
+            r +=  f'\n{funcname} has failed'
             if self.exception:
                 r += ', exception was: ' + str(self.exception) 
             return r
 
         if not self.found:
-            return f'{funcname} was not found'
+            return r + f'\n{funcname} was not found'
 
-        r = '-' * 40
         r += f'\n{funcname} ran {len(self.passed_cases) + len(self.failed_cases)} tests.'
         
         if len(self.passed_cases):
