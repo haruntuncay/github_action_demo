@@ -82,9 +82,12 @@ def run_test_for_func(name, asmt, sol, test_inputs):
 
             buffer.clear()
         except Exception as e:
-            sout.write(e)
+            #print(e, file=sout)
             case.passed = False
             case.reason = e
+            report.failed = True
+            report.exception = e
+            break
 
         report.add_case(case)
 

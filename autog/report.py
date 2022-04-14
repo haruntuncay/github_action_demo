@@ -15,12 +15,13 @@ class Case():
 
 class Report():
 
-    def __init__(self, name, failed=False, found=True):
+    def __init__(self, name, exception=None, failed=False, found=True):
         self.name = name
         self.passed_cases = []
         self.failed_cases = []
-        self.failed = False
-        self.found = True
+        self.exception = exception
+        self.failed = failed
+        self.found = found
         
     def add_case(self, case):
         if case.passed:
@@ -35,16 +36,19 @@ class Report():
         self.found = False
 
     def report(self):
+        funcname = self.name.upper()
+
         if self.failed:
-            print(f'Function {self.name} has failed to run, due to error')
-            return
+            r =  f'{funcname} has failed'
+            if self.exception:
+                r += ', exception was: ' + str(self.exception) 
+            return r
 
         if not self.found:
-            print(f'No function named {self.name} was found')
-            return
+            return f'{funcname} was not found'
 
         r = '-' * 40
-        r += f'\n{self.name.upper()} ran {len(self.passed_cases) + len(self.failed_cases)} tests.'
+        r += f'\n{funcname} ran {len(self.passed_cases) + len(self.failed_cases)} tests.'
         
         if len(self.passed_cases):
             r += f'\n{GREEN}{len(self.passed_cases)} tests were succesful.{ENDC}'
