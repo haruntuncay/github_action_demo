@@ -91,11 +91,8 @@ def get_source(input):
             lineno = int(parts[1])
             msg = parts[-1]
 
-            print(lineno, msg)
-
-
             if DEBUG:
-                print('error in line ', lineno)
+                print('error in line ', lineno, msg)
 
             if get_error_type(msg) == Error.INDENT_EXPECTED:
                 # above function has empty body
